@@ -14,7 +14,6 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<ErrorResponseDto> handleValidationFailure(Exception ex) {
         ErrorResponseDto errorResponseDto = new ErrorResponseDto();
-        String s = ex.getMessage();
         errorResponseDto.setDescription(ex.getMessage());
         log.info("HandleException {}", ex.getMessage());
         return ResponseEntity.badRequest().body(errorResponseDto);

@@ -3,7 +3,9 @@ package com.example.FlightsApplication.exception;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class CheckinNotFoundException extends Exception{
+public class CheckinNotFoundException extends Exception {
 
-    private final String message;
+    public CheckinNotFoundException(String message) {
+        super(message);
+    }
 }
