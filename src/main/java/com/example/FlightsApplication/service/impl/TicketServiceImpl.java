@@ -30,7 +30,7 @@ public class TicketServiceImpl implements TicketService {
 
         Boolean result = checkIsExists(ticketId);
 
-        log.info("CheckStatus finished");
+        log.info("CheckTicket finished");
         return result;
     }
 
