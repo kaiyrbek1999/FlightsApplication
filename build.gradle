@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	compileOnly group: 'org.projectlombok', name: 'lombok'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	implementation 'org.hibernate:hibernate-validator:8.0.0.Final'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation group: 'org.slf4j', name: 'slf4j-simple'
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'junit:junit'
+	testImplementation 'org.mockito:mockito-junit-jupiter'
+	testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
