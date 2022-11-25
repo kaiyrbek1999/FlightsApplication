@@ -2,3 +2,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+application:
+  cache-size: 3

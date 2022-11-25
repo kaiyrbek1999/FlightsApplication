@@ -1,7 +1,7 @@
 package com.example.FlightsApplication.cache;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.Optional;
@@ -10,7 +10,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 @Component
 public class LRUCache<K, V> implements Cache<K, V> {
-    private int size = 3;
+
+    @Value(value = "${application.cache-size}")
+    private int size;
     private Map<K, LinkedListNode<CacheElement<K, V>>> linkedListNodeMap;
     private DoublyLinkedList<CacheElement<K, V>> doublyLinkedList;
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
