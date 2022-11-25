@@ -31,8 +31,7 @@ public class CheckinServiceImpl implements CheckinService {
      */
     @Override
     public Boolean checkStatus(Integer destinationId, String baggageId) throws CheckinNotFoundException {
-        log.info("CheckStatus started with parameters destinationId: {} , baggageId: {}",
-                destinationId, baggageId);
+        log.info("CheckStatus started with parameters destinationId: {} , baggageId: {}", destinationId, baggageId);
 
         Boolean result = checkIsSucceed(destinationId, baggageId);
 
@@ -54,7 +53,9 @@ public class CheckinServiceImpl implements CheckinService {
             if (!checkinRepo.getStorage().containsKey(key)) {
                 throw new CheckinNotFoundException("Checkin not found for key: " + key);
             }
-            return checkinRepo.getStorage().get(key).getCheckStatus().equals(SUCCEED);
+            CheckIn c = checkinRepo.getStorage().get(key);
+            addToCache(key, c);
+            return c.getCheckStatus().equals(SUCCEED);
         }
         return checkin.get().getCheckStatus().equals(SUCCEED);
     }
