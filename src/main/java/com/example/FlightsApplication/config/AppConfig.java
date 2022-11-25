@@ -26,8 +26,8 @@ public class AppConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("FTTB Diagnostic Service")
-                .description("Diagnosing the Cause of FTTB Problems.")
+                .title("Flight Application")
+                .description("Flight Application")
                 .version("1.0.0")
                 .build();
     }
